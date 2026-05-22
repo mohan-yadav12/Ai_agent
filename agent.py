@@ -7,7 +7,6 @@ from tools import mock_lead_capture
 from llm import extract_lead_info
 
 kb = load_knowledge()
-
 class AgentState(TypedDict):
     history: List[Dict[str, str]]
     user_input: str

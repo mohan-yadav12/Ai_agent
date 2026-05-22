@@ -3,11 +3,8 @@ import os
 from dotenv import load_dotenv
 
 load_dotenv()
-
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-
+genai.configure(api_key=os.getenv("API_KEY"))
 model = genai.GenerativeModel("gemini-flash-latest")
-
 def generate_response(prompt: str) -> str:
     response = model.generate_content(prompt)
     return response.text
@@ -19,10 +16,8 @@ def extract_lead_info(user_input: str) -> dict:
     - name
     - email
     - platform (e.g., YouTube, Instagram)
-
     If a piece of information is not present, set its value to null.
     Return ONLY a valid JSON object with the keys "name", "email", and "platform", and no markdown formatting or other text.
-
     User Input: {user_input}
     """
     try:
